@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZeytinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Depo_Tablo">
+    <Key>
+      <PropertyRef Name="İd" />
+    </Key>
+    <Property Name="İd" Type="nchar" MaxLength="150" Nullable="false" />
+    <Property Name="GemlikZeytin" Type="float" />
+    <Property Name="DomatZeytin" Type="float" />
+    <Property Name="EsekZeytin" Type="float" />
+    <Property Name="AyvalilZeytin" Type="float" />
+    <Property Name="ZeytinYagi" Type="float" />
+  </EntityType>
+  <EntityType Name="Kasa_Tablo">
+    <Key>
+      <PropertyRef Name="SiparisNo" />
+    </Key>
+    <Property Name="SiparisNo" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="SatisFiyati" Type="float" />
+    <Property Name="AlinanPara" Type="float" />
+    <Property Name="ToplamPara" Type="float" />
+  </EntityType>
+  <EntityType Name="Musteri_Tablo">
+    <Key>
+      <PropertyRef Name="UrunBarkod" />
+    </Key>
+    <Property Name="UrunBarkod" Type="float" Nullable="false" />
+    <Property Name="Musteriİd" Type="int" />
+    <Property Name="Ad" Type="nchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nchar" MaxLength="100" />
+    <Property Name="TelefonNumarasi" Type="float" />
+    <Property Name="Adres" Type="nchar" MaxLength="1000" />
+    <Property Name="ZeytinTuru" Type="nchar" MaxLength="100" />
+    <Property Name="Miktar" Type="float" />
+    <Property Name="Fiyat" Type="float" />
+  </EntityType>
+  <EntityType Name="Siparis_Tablo">
+    <Key>
+      <PropertyRef Name="Musteriİd" />
+    </Key>
+    <Property Name="Musteriİd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adres" Type="nchar" MaxLength="500" />
+    <Property Name="Kilogram" Type="float" />
+    <Property Name="Litre" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Urun_Tablo">
+    <Key>
+      <PropertyRef Name="İd" />
+    </Key>
+    <Property Name="İd" Type="int" Nullable="false" />
+    <Property Name="UrunAdi" Type="nchar" MaxLength="150" />
+    <Property Name="UrunBilgi" Type="nchar" MaxLength="150" />
+    <Property Name="Satisfiyat" Type="float" />
+    <Property Name="UrunBarkod" Type="float" />
+  </EntityType>
+  <EntityContainer Name="ZeytinModelStoreContainer">
+    <EntitySet Name="Depo_Tablo" EntityType="Self.Depo_Tablo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kasa_Tablo" EntityType="Self.Kasa_Tablo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteri_Tablo" EntityType="Self.Musteri_Tablo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Siparis_Tablo" EntityType="Self.Siparis_Tablo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urun_Tablo" EntityType="Self.Urun_Tablo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

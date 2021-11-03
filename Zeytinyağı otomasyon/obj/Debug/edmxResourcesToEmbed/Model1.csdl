@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZeytinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Depo_Tablo">
+    <Key>
+      <PropertyRef Name="İd" />
+    </Key>
+    <Property Name="İd" Type="String" MaxLength="150" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="GemlikZeytin" Type="Double" />
+    <Property Name="DomatZeytin" Type="Double" />
+    <Property Name="EsekZeytin" Type="Double" />
+    <Property Name="AyvalilZeytin" Type="Double" />
+    <Property Name="ZeytinYagi" Type="Double" />
+  </EntityType>
+  <EntityType Name="Kasa_Tablo">
+    <Key>
+      <PropertyRef Name="SiparisNo" />
+    </Key>
+    <Property Name="SiparisNo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SatisFiyati" Type="Double" />
+    <Property Name="AlinanPara" Type="Double" />
+    <Property Name="ToplamPara" Type="Double" />
+  </EntityType>
+  <EntityType Name="Musteri_Tablo">
+    <Key>
+      <PropertyRef Name="UrunBarkod" />
+    </Key>
+    <Property Name="UrunBarkod" Type="Double" Nullable="false" />
+    <Property Name="Musteriİd" Type="Int32" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="TelefonNumarasi" Type="Double" />
+    <Property Name="Adres" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+    <Property Name="ZeytinTuru" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Miktar" Type="Double" />
+    <Property Name="Fiyat" Type="Double" />
+  </EntityType>
+  <EntityType Name="Siparis_Tablo">
+    <Key>
+      <PropertyRef Name="Musteriİd" />
+    </Key>
+    <Property Name="Musteriİd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adres" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Name="Kilogram" Type="Double" />
+    <Property Name="Litre" Type="Double" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urun_Tablo">
+    <Key>
+      <PropertyRef Name="İd" />
+    </Key>
+    <Property Name="İd" Type="Int32" Nullable="false" />
+    <Property Name="UrunAdi" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+    <Property Name="UrunBilgi" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+    <Property Name="Satisfiyat" Type="Double" />
+    <Property Name="UrunBarkod" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="ZeytinEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Depo_Tablo" EntityType="Self.Depo_Tablo" />
+    <EntitySet Name="Kasa_Tablo" EntityType="Self.Kasa_Tablo" />
+    <EntitySet Name="Musteri_Tablo" EntityType="Self.Musteri_Tablo" />
+    <EntitySet Name="Siparis_Tablo" EntityType="Self.Siparis_Tablo" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Urun_Tablo" EntityType="Self.Urun_Tablo" />
+  </EntityContainer>
+</Schema>
